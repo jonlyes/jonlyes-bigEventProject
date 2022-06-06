@@ -1,0 +1,69 @@
+/* 样式初始化 */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: url('/assets/images/login_bg.jpg') no-repeat center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* log区域 */
+.layui-main {
+    margin-top: 32px
+}
+
+/* 登录注册区域 */
+.box-log {
+    width: 400px;
+    height: 310px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    padding: 0 20px;
+}
+
+/* tilte图片区域 */
+.titile {
+    height: 60px;
+    background: url('/assets/images/login_title.png') no-repeat center;
+}
+
+/* 登录表单区域 */
+/* .logingForm{
+
+} */
+.iptPadding {
+    padding-left: 32px;
+}
+
+.logingItem {
+    position: relative;
+}
+
+.logingItem i {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.logingBtn {
+    width: 100%;
+}
+
+.links {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.links a {
+    color: #1E9FFF;
+    font-size: 12px;
+}
