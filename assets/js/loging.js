@@ -88,7 +88,7 @@ $(function () {
     //发送POST请求
     $.ajax({
       type: "POST",
-      url: "http://www.liulongbin.top:3008/api/login",
+      url: "/api/login",
       data: {
         username: $("#form_log [name=username]").val(),
         password: $("#form_log [name=password]").val(),
@@ -113,7 +113,7 @@ $(function () {
     //发送POST请求
     $.ajax({
       type: "POST",
-      url: "http://www.liulongbin.top:3008/api/reg",
+      url: "/api/reg",
       data: {
         username: $("#form_reg [name=username]").val(),
         password: $("#form_reg [name=password]").val(),
