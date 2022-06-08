@@ -2,6 +2,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 html, body {
@@ -20,13 +21,13 @@ html, body {
 /* 登录注册区域 */
 .box-log {
     width: 400px;
-    height: 310px;
+    /* height: 310px; */
     background-color: rgb(255, 255, 255);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 6px;
+    border-radius: 4px;
     padding: 0 20px;
 }
 
@@ -37,30 +38,33 @@ html, body {
 }
 
 /* 登录表单区域 */
-/* .logingForm{
-
-} */
 .iptPadding {
     padding-left: 32px;
 }
 
-.logingItem {
+.layui-form-item {
+    margin: 24px 0;
+}
+
+.logItem, .regItem {
     position: relative;
 }
 
-.logingItem i {
+.logItem i, .regItem i {
     position: absolute;
     top: 10px;
     left: 10px;
 }
 
-.logingBtn {
+.logBtn, .regBtn {
     width: 100%;
 }
 
 .links {
+    height: 24px;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .links a {
