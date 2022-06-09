@@ -11,6 +11,7 @@ html, body {
     background: url('/assets/images/login_bg.jpg') no-repeat center;
     background-size: cover;
     overflow: hidden;
+    display: block;
 }
 
 /* log区域 */
