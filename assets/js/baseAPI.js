@@ -16,7 +16,7 @@ $.ajaxPrefilter((option) => {
       //强制清除本地存储 token 值
       localStorage.removeItem("token");
       //强制跳转登录页面
-      location.href = "/loging.html";
+      window.parent.location.href = "/loging.html";
     }
   };
 });

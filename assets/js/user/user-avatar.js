@@ -22,7 +22,6 @@ $(function () {
   //监听file的上传事件
   $("#file").on("change", function (e) {
     let fileList = e.target.files;
-    console.log(fileList.length);
     if (fileList.length === 0) {
       return layer.msg("请选择照片");
     }

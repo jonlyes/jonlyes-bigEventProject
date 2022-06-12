@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 15px;
+    background-color: #f2f3f5;
+}
+
+.layui-form-label {
+    width: 60px;
+    padding-left: 4px !important;
+    padding-right: 0 !important;
+    margin-left: 4px !important;
+    margin-right: 0 !important;
+}
+
+
+.layui-input-block {
+    margin-left: 80px;
+}
+
+.layui-input-block button {
+    margin-left: -72px;
+}
+
+#paging {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 15px;
+}

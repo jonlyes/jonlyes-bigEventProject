@@ -82,7 +82,7 @@ $(function () {
   let layer = layui.layer;
 
   // //监听登录表单的提交事件
-  $("body").on("submit", "#form_log", (e) => {
+  $("body").on("submit", "#form_log", function (e) {
     //清除浏览器的默认提交行为
     e.preventDefault();
     //发送POST请求
@@ -96,10 +96,8 @@ $(function () {
       success: function (res) {
         if (res.code !== 0) return layer.msg(res.message); //弹出信息框
         layer.msg("登录成功！"); //弹出信息框
-
         //保存token到本地存储
         localStorage.setItem("token", res.token);
-
         //跳转到index页面
         location.href = "/index.html";
       },

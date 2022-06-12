@@ -1,4 +1,9 @@
 $(function () {
+  // 判断本地存储是否有 image 值，有则渲染到头像
+  if (localStorage.getItem("iamge")) {
+    $(".layui-nav-img").attr("src", localStorage.getItem("iamge")).show();
+    $(".text-avatar").hide();
+  }
   //获取用户信息并渲染
   getUser();
 
@@ -28,6 +33,9 @@ function getUser() {
     success(res) {
       if (res.code !== 0) return console.log("用户信息获取失败");
       renderAvatar(res.data);
+      if (res.data.user_pic) {
+        localStorage.setItem("iamge", res.data.user_pic);
+      }
     },
   });
 }
