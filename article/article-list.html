@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文章列表</title>
     <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="/assets/lib/cropper/cropper.css">
     <link rel="stylesheet" href="/assets/css/article/article-list.css">
 </head>
 
@@ -18,15 +19,15 @@
             <!-- 筛选区域 -->
             <form class="layui-form" id="formSelect">
                 <div class="layui-form-item layui-inline">
-                    <label class="layui-form-label">文章分类</label>
-                    <div class="layui-input-block">
+                    <label class="layui-form-label" id="formLabel">文章分类</label>
+                    <div class="layui-input-block" id="iptBlock">
                         <select name="cate_id">
                         </select>
                     </div>
                 </div>
                 <div class="layui-form-item layui-inline">
-                    <label class="layui-form-label">发布状态</label>
-                    <div class="layui-input-block">
+                    <label class="layui-form-label" id="formLabel">发布状态</label>
+                    <div class="layui-input-block" id="iptBlock">
                         <select name="state">
                             <option value="">所有状态</option>
                             <option value="已发布">已发布</option>
@@ -35,7 +36,7 @@
                     </div>
                 </div>
                 <div class="layui-form-item layui-inline">
-                    <div class="layui-input-block">
+                    <div class="layui-input-block" id="iptBlock">
                         <button class="layui-btn" lay-submit>筛选</button>
                     </div>
                 </div>
@@ -75,7 +76,7 @@
             <td>{{$value.pub_date}}</td>
             <td>{{$value.state}}</td>
             <td>
-                <button type="button" class="layui-btn layui-btn-xs">编辑</button>
+                <button type="button" class="layui-btn layui-btn-xs" id="tableEditor" data-id="{{$value.id}}">编辑</button>
                 <button type="button" class="layui-btn layui-btn-danger layui-btn-xs"  id="tableDel" data-id="{{$value.id}}">删除</button>
             </td>
         </tr>
@@ -88,9 +89,76 @@
         <option value="{{$value.id}}">{{$value.cate_name}}</option>
         {{/each}}
     </script>
+
+    <!-- 编辑修改文章模板 -->
+    <script type="text/html" id="articleEditor">
+        <form class="layui-form" id="formPub" lay-filter="form-cateEditor">
+            <div class="layui-form-item">
+                <label class="layui-form-label">文章标题</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" required lay-verify="required" placeholder="请输入文章标题"
+                        autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">文章分类</label>
+                <div class="layui-input-block">
+                    <!-- 隐藏域 获取所属分类的id -->
+                    <input type="hidden" name="cate_id">
+                    <select  lay-verify="required">
+                        <option name="cate_name"></option>
+                    </select>
+                </div>
+            </div>
+            <!-- 富文本容器 -->
+            <div class="layui-form-item">
+                <!-- 左侧的 label -->
+                <label class="layui-form-label">文章内容</label>
+                <!-- 为富文本编辑器外部的容器设置高度 -->
+                <div class="layui-input-block" style="height: 400px;">
+                    <!-- 重要：将来这个 textarea 会被初始化为富文本编辑器 -->
+                    <textarea name="content" id="richText"></textarea>
+                </div>
+            </div>
+            <!-- 封面容器 -->
+            <div class="layui-form-item">
+                <!-- 左侧的 label -->
+                <label class="layui-form-label">文章封面</label>
+                <!-- 选择封面区域 -->
+                <div class="layui-input-block cover-box">
+                    <!-- 左侧裁剪区域 -->
+                    <div class="cover-left">
+                        <img id="image" src="/assets/images/sample2.jpg" alt="" />
+                    </div>
+                    <!-- 右侧预览区域和选择封面区域 -->
+                    <div class="cover-right">
+                        <!-- 预览的区域 -->
+                        <div class="img-preview" id="cover_img"></div>
+                        <!-- 选择封面按钮 -->
+                        <button type="button" class="layui-btn layui-btn-danger" id="btnCover">选择封面</button>
+                        <!-- 隐藏上传功能 -->
+                        <input type='file' id="fileCover" accept="image/jpeg,image/png,image/gif"
+                            style="display: none;">
+                    </div>
+                </div>
+            </div>
+            <!-- 发布/草稿 -->
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit id="btnRelease">发布</button>
+                    <button class="layui-btn layui-btn-primary" lay-submit id="btnDraft">存为草稿</button>
+                </div>
+            </div>
+        </form>
+    </script>
+
     <script src="/assets/lib/jquery.js"></script>
     <script src="/assets/lib/layui/layui.all.js"></script>
     <script src="/assets/lib/template-web.js"></script>
+    <script src="/assets/lib/tinymce/tinymce.min.js"></script>
+    <script src="/assets/lib/tinymce/tinymce_setup.js"></script>
+    <script src="/assets/lib/cropper/Cropper.js"></script>
+    <script src="/assets/lib/cropper/jquery-cropper.js"></script>
     <script src="/assets/js/baseAPI.js"></script>
     <script src="/assets/js/article/article-list.js"></script>
 </body>

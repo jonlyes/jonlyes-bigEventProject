@@ -8,7 +8,7 @@ body {
     background-color: #f2f3f5;
 }
 
-.layui-form-label {
+#formLabel {
     width: 60px;
     padding-left: 4px !important;
     padding-right: 0 !important;
@@ -17,11 +17,11 @@ body {
 }
 
 
-.layui-input-block {
+#iptBlock {
     margin-left: 80px;
 }
 
-.layui-input-block button {
+#iptBlock button {
     margin-left: -72px;
 }
 
@@ -29,4 +29,39 @@ body {
     display: flex !important;
     justify-content: center;
     margin-top: 15px;
+}
+
+#formPub {
+    /* width: 1000px; */
+    padding: 10px;
+    margin: 15px;
+}
+
+/* 封面容器的样式 */
+.cover-box {
+    display: flex;
+}
+
+/* 左侧裁剪区域的样式 */
+.cover-left {
+    width: 400px;
+    height: 280px;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+/* 右侧盒子的样式 */
+.cover-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 预览区域的样式 */
+.img-preview {
+    width: 200px;
+    height: 140px;
+    background-color: #ccc;
+    margin-bottom: 20px;
+    overflow: hidden;
 }

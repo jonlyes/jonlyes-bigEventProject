@@ -8,6 +8,10 @@ body {
     background-color: #f2f3f5;
 }
 
+#formPub {
+    width: 1000px;
+}
+
 /* 封面容器的样式 */
 .cover-box {
     display: flex;

@@ -20,8 +20,6 @@ $(function () {
   // 3. 初始化裁剪区域
   $image.cropper(options);
   //监听选择封面按钮的点击事件
-
-  //监听选择封面按钮的点击事件
   $("#btnCover").on("click", function () {
     // 触发上传事件
     $("#fileCover").click();
